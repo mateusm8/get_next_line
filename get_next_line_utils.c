@@ -6,18 +6,20 @@
 /*   By: mmagalha <mmagalha@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 02:09:28 by mmagalha          #+#    #+#             */
-/*   Updated: 2022/03/29 18:07:29 by mmagalha         ###   ########.fr       */
+/*   Updated: 2022/03/29 18:32:02 by mmagalha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(const char *c)
+size_t	ft_strlen(const char *s)
 {
 	int	i;
 
 	i = 0;
-	while (c)
+	if (!s)
+		return (0);
+	while (s[i] != 0)
 		i++;
 	return (i);
 }
