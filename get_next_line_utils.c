@@ -6,7 +6,7 @@
 /*   By: matmagal <matmagal@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 14:36:55 by matmagal          #+#    #+#             */
-/*   Updated: 2025/07/10 14:50:23 by matmagal         ###   ########.fr       */
+/*   Updated: 2025/07/10 14:59:08 by matmagal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char	*ft_strchr(const char *s, int c)
 	char	ch;
 
 	ch = (char)c;
-	int	= 0;
+	i = 0;
 	if (!s)
 		return (0);
 	if (c == 0)
@@ -44,7 +44,7 @@ char	*ft_strchr(const char *s, int c)
 	return (0);
 }
 
-char	*ft_strjoin(char *s1, char s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	size_t	i;
 	size_t	c;
@@ -52,7 +52,7 @@ char	*ft_strjoin(char *s1, char s2)
 
 	if (!s1)
 	{
-		s1 = malloc(sizeof(char));
+		s1 = (char *)malloc(1 * sizeof(char));
 		s1[0] = '\0';
 	}
 	if (!s1 || !s2)
@@ -64,5 +64,35 @@ char	*ft_strjoin(char *s1, char s2)
 	c = 0;
 	if (s1)
 		while (s1[++i] != '\0')
-			str[i] = s1[i]
+			str[i] = s1[i];
+	while (s2[c] != '\0')
+		str[i++] = s2[c++];
+	str[ft_strlen(s1) + ft_strlen(s2)] = '\0';
+	free(s1);
+	return (str);
+}
+
+char	*ft_strldup(char *s1, int size)
+{
+	char	*str;
+	int		i;
+
+	if (size < 1 || !s1)
+		return (NULL);
+	str = malloc((sizeof(char) * size) + 2);
+	if (!str)
+		return (NULL);
+	i = 0;
+	while (s1[i] && i < size)
+	{
+		str[i] = s1[i];
+		i++;
+	}
+	if (s1[i] == '\n')
+	{
+		str[i] = s1[i];
+		i++;
+	}
+	str[i] = 0;
+	return (str);
 }

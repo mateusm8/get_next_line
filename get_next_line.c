@@ -6,7 +6,7 @@
 /*   By: matmagal <matmagal@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 13:43:54 by matmagal          #+#    #+#             */
-/*   Updated: 2025/07/10 14:31:29 by matmagal         ###   ########.fr       */
+/*   Updated: 2025/07/10 15:05:12 by matmagal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,11 @@ char	*ft_read_fd(int fd, char *buffer)
 		buffer_rd[bytes_rd] = 0;
 		buffer = ft_strjoin(buffer, buffer_rd);
 	}
-	free(buffer);
+	free(buffer_rd);
 	return (buffer);
 }
 
-char *ft_line(char *buffer)
+char	*ft_line(char *buffer)
 {
 	char	*line;
 	int		i;
@@ -51,7 +51,7 @@ char *ft_line(char *buffer)
 			return (NULL);
 		line[0] = '\n';
 		line[1] = 0;
-		reutrn (line);
+		return (line);
 	}
 	while (buffer[i] && buffer[i] != '\n')
 		i++;
@@ -59,7 +59,7 @@ char *ft_line(char *buffer)
 	return (line);
 }
 
-char *ft_next_line(char *buffer)
+char	*ft_next_line(char *buffer)
 {
 	char	*next_line;
 	int		i;
@@ -85,7 +85,7 @@ char *ft_next_line(char *buffer)
 	return (next_line);
 }
 
-char *get_next_line(inf fd)
+char *get_next_line(int fd)
 {
 	static char	*buffer;
 	char		*line;
