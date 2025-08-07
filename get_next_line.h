@@ -6,7 +6,7 @@
 /*   By: matmagal <matmagal@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 14:31:39 by matmagal          #+#    #+#             */
-/*   Updated: 2025/07/10 15:05:53 by matmagal         ###   ########.fr       */
+/*   Updated: 2025/08/05 17:20:12 by matmagal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,16 @@
 #  define BUFFER_SIZE 42
 # endif
 
-# include <unistd.h>
+# include <limits.h>
+# include <stdio.h>
 # include <stdlib.h>
+# include <unistd.h>
+# include <fcntl.h>
 
-size_t	ft_strlen(const char *s);
-char	*ft_strldup(char *s1, int size);
-char	*ft_strchr(const char *s, int c);
-char	*ft_strjoin(char *s1, char *s2);
 char	*get_next_line(int fd);
-char	*ft_line(char *buffer);
-char	*ft_next_line(char *buffer);
-char	*ft_read_fd(int fd, char *buffer);
+int		ft_check_nl(char *str);
+char	*ft_strjoin(char *s1, char *s2);
+void	ft_clean(char *buffer);
+size_t	ft_strlen(char *str);
 
 #endif
